@@ -85,4 +85,13 @@ describe 'navigate' do
 			expect(page).to have_content("Edited rationale")
 		end
 	end
+
+	describe 'delete' do
+		it "can be deleted" do
+			@post = FactoryGirl.create(:post)
+			visit posts_path
+
+			expect { click_link("destroy_post_#{@post.id}") }.to change(Post, :count).by(-1)
+		end
+	end
 end
