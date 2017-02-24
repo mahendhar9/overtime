@@ -2,7 +2,7 @@
 
 <% if @post.errors.any? %>
 <% @post.errors.full_messages.each do |error| %>
-<%= js add_gritter(error, sticky: true) %>
+<%= js add_gritter(error, sticky: false) %>
 <% end %>
 <% end %>
 
