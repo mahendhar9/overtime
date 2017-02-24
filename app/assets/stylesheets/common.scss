@@ -1,3 +1,15 @@
+$monts: 'Open Sans', sans-serif;
+body {
+	font-family: $monts;
+}
+.gritter-title {
+	display: none;
+}
+#gritter-notice-wrapper p {
+	font-family: $monts;
+	font-size: 14px;
+	margin-top: 5px;
+}
 .custom-nav {
 	margin-top: 15px;
 }
