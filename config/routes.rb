@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :posts
-  devise_for :users, skip: [:registrations]
-  get 'static/homepage'
+	namespace :admin do
+		resources :users
+		resources :posts
+		resources :admin_users
 
-  root 'static#homepage'
+		root to: "users#index"
+	end
+
+	resources :posts
+	devise_for :users, skip: [:registrations]
+	get 'static/homepage'
+
+	root 'static#homepage'
 end
