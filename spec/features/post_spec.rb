@@ -27,6 +27,18 @@ describe 'navigate' do
 
 			expect(page).to have_content(/Rationale|content/)
 		end
+
+		it "only shows the posts of the current user" do
+			post1 = FactoryGirl.create(:post)
+			post1.update(user_id: @user.id)
+			post2 = FactoryGirl.create(:second_post)
+			post2.update(user_id: @user.id)
+
+			post_from_other_user = FactoryGirl.create(:post_from_other_user)
+			visit posts_path
+
+			expect(page).to_not have_content(/Post from another user/)
+		end
 	end
 
 	describe 'new' do
@@ -93,6 +105,7 @@ describe 'navigate' do
 	describe 'delete' do
 		it "can be deleted" do
 			@post = FactoryGirl.create(:post)
+			@post.update(user_id: @user.id)
 			visit posts_path
 
 			expect { click_link("destroy_post_#{@post.id}") }.to change(Post, :count).by(-1)
