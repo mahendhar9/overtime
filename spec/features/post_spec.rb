@@ -109,7 +109,7 @@ describe 'navigate' do
 			@post.update(user_id: @user.id)
 			visit posts_path
 
-			expect { click_link("destroy_post_#{@post.id}") }.to change(Post, :count).by(-1)
+			expect { click_link("delete_post_#{@post.id}") }.to change(Post, :count).by(-1)
 		end
 	end
 end
