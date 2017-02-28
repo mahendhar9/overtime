@@ -32,4 +32,5 @@ gem "administrate", "~> 0.3.0"
 gem 'bourbon'
 gem "pundit"
 gem 'twilio-ruby', '~> 4.11.1'
+gem 'kaminari'
 
