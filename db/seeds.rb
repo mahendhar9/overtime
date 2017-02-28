@@ -4,3 +4,7 @@ AdminUser.create(email: 'admin@test.com', password: "test_pass", password_confir
 100.times do |post|
 	Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: user.id, overtime_request: 1.4)
 end
+
+100.times do |post|
+	AuditLog.create(user_id: User.last.id, status: 0, start_date: Date.today-6.days)
+end
