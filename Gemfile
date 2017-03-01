@@ -34,3 +34,5 @@ gem "pundit"
 gem 'twilio-ruby', '~> 4.11.1'
 gem 'kaminari'
 
+gem 'rails_12factor', group: :production
+
